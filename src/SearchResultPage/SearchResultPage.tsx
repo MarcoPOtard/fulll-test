@@ -12,6 +12,7 @@ export default function SearchResultPage() {
     const [selectedUsers, setSelectedUsers] = useState<string[]>([]);
     const [pageNumberToDisplay, setpageNumberToDisplay] = useState(1);
     const [resultsAreLoading, setResultsAreLoading] = useState(false);
+    const [errorMessage, setErrorMessage] = useState('');
     const resultsContainerRef = useRef<HTMLDivElement | null>(null);
     const resultsContainerScrollRef = useRef<HTMLDivElement | null>(null);
     const editModeContext = useEditModeContext();
@@ -19,6 +20,7 @@ export default function SearchResultPage() {
     const handlerChangeSearch = debounce((value: string, pageNumber: number) => {
         let _value = value;
         setSearchValue(value);
+        setErrorMessage('');
 
         if (_value === '') {
             setUsers([]);
@@ -32,10 +34,16 @@ export default function SearchResultPage() {
             .then(response => response.json())
             .then(data => {
                 if (data.items === undefined) {
+                    setErrorMessage('Trop de connection à l\'API');
                     return;
                 }
                 if (_value !== searchValue) {
                     setSearchValue(_value);
+                    if (data.total_count === 0) {
+                        setUsers([]);
+                        setErrorMessage('Nous n\'avons pas trouvé d\'utilisateurs correspondants à votre recherche');
+                        return;
+                    }
                     setUsers([...[], ...data.items]);
                     setSelectedUsers([]);
                     return;
@@ -125,6 +133,9 @@ export default function SearchResultPage() {
                 />
             </form>
 
+            {errorMessage !== '' &&
+                <p className="error-message">{errorMessage}</p>
+            }
             {(editModeContext.state && users.length > 0) &&
                 <div className="edit__container">
                     <Checkbox

@@ -142,7 +142,10 @@ h1 {
     font-weight: bold;
 }
 
-
+.error-message {
+    margin: 1rem;
+    text-align: center;
+}
 .loader {
     display: inline-block;
     box-sizing: border-box;
@@ -177,7 +180,8 @@ h1 {
         right: 2rem;
     }
     .edit__container,
-    .results__container {
+    .results__container,
+    .error-message {
         margin-right: 2rem;
         margin-left: 2rem;
     }
