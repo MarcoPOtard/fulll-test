@@ -1,3 +1,21 @@
+# Test technique pour Fulll de Marc Potard
+
+## Sujet
+Concernant les 7 points  du sujet, il me semble y avoir répondu et j'espère ne rien avoir oublié.\
+Un point que je n'ai pas traité est les utilisateurs en doublon dans les retours de l'API Github, d'où les erreurs en console.\
+Je n'ai pas non plus gérer l'affichage de la checkbox pour indiquer qu'il y a un certain nombre d'éléments sélectionnés, elle permet uniquement la sélection et déselection de tous les utilisateurs.
+
+## Bonus
+J'ai également fait le bonus en utilisant les contextes.
+
+## Guidelines
+J'ai fait au mieux pour les respecter.
+
+## Évaluation
+J'espère que ce que j'ai fait correspondra à vos souhaits.\
+Concernant le respet du mock, j'avoue que naturellement j'étais parti sur des cartes un peu plus large que 100px, car niveau UX c'est vraiment très serré. Mais j'ai fait en sorte de respecter le mock.\
+Concernant les test, je n'en ai jamais fait avec testing library, je me suis donc contenté de mettre à jour les tests existants.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
