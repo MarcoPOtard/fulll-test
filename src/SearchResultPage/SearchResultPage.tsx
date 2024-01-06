@@ -125,8 +125,8 @@ export default function SearchResultPage() {
                 />
             </form>
 
-            {editModeContext.state &&
-                <div className="edit-container">
+            {(editModeContext.state && users.length > 0) &&
+                <div className="edit__container">
                     <Checkbox
                         name="all"
                         value={users.length > 0 && selectedUsers.length === numberUsers}
@@ -134,7 +134,11 @@ export default function SearchResultPage() {
                         label={labelSelectedAll}
                     />
                     <div className="">
-                        <button type="button" onClick={() => handleDuplicate()}>
+                        <button
+                            type="button"
+                            onClick={() => handleDuplicate()}
+                            className="edit__button"
+                        >
                             {/*<img src={iconDuplicate} alt="Dupliquer les utilisateurs sélectionnés"/>*/}
                             <img src={process.env.PUBLIC_URL + '/images/icon-duplicate.png'}
                                  width="16"
@@ -142,7 +146,11 @@ export default function SearchResultPage() {
                                  title="Dupliquer les utilisateurs sélectionnés"
                             />
                         </button>
-                        <button type="button" onClick={() => handleDeleted()}>
+                        <button
+                            type="button"
+                            onClick={() => handleDeleted()}
+                            className="edit__button"
+                        >
                             <img src={process.env.PUBLIC_URL + '/images/icon-trash.png'}
                                  width="16"
                                  alt="Supprimer les utilisateurs sélectionnés"

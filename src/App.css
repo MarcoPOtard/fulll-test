@@ -6,7 +6,7 @@
     position: relative;
     height: 4rem;
     padding: 0 1rem;
-    background-color: #f8f8f8;
+    background-color: #929292;
 }
 .header__edit-checkbox {
     position: absolute;
@@ -40,13 +40,16 @@ h1 {
     background-color: #D5D5D5;
 }
 
-.edit-container {
+.edit__container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     margin: 0 1rem;
 }
-button {
+.edit__button {
+    margin: 0 0.5rem;
+    border: 0;
+    background-color: transparent;
     cursor: pointer;
 }
 
@@ -173,7 +176,7 @@ button {
     .header__edit-checkbox {
         right: 2rem;
     }
-    .edit-container,
+    .edit__container,
     .results__container {
         margin-right: 2rem;
         margin-left: 2rem;
