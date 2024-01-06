@@ -1,38 +1,186 @@
 .App {
-  text-align: center;
+    height: 100vh;
+    overflow: hidden;
+}
+.header {
+    position: relative;
+    height: 4rem;
+    padding: 0 1rem;
+    background-color: #f8f8f8;
+}
+.header__edit-checkbox {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+}
+h1 {
+    margin: 0;
+    line-height: 4rem;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.results__page {
+    height: calc(100vh - 4rem);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.search-form {
+    height: 4rem;
+    margin: 1rem;
+    text-align: center;
+}
+.search-form__label,
+.search-form__input {
+    display: inline-block;
+    margin: 0.2rem 0;
+}
+.search-form__input {
+    width: 100%;
+    padding: 0.5rem 0.8rem;
+    border: 0;
+    border-radius: 0.5rem;
+    background-color: #D5D5D5;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.edit-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 1rem;
+}
+button {
+    cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+.results__container {
+    height: calc(100% - 9rem);
+    margin: 1rem;
+    padding: 0.5rem;
+    border: 1px solid #000;
+    overflow: scroll;
+}
+.results__container-scroll {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+    flex-wrap: wrap;
+    height: auto;
+    scroll-behavior: auto;
+}
+.results__user {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 6.25rem;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    text-align: center;
+    font-size: 0.875rem;
+    word-break: break-word;
+    border-radius: 0.5rem;
+    background-color: #D5D5D5;
+    box-shadow: 0.3rem 0.3rem 0.3rem #AAA;
+}
+.results__user:last-child {
+    margin-right: auto;
+}
+.results__user-checkbox {
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+}
+.results__user-avatar {
+    margin-bottom: 1rem;
+    border-radius: 100%;
+}
+.results__user-id,
+.results__user-login {
+    margin: 0;
+    font-weight: bold;
+}
+.results__user-login {
+    margin-bottom: 1rem;
+}
+.results__user-button {
+    width: 100%;
+    min-height: 2.75rem;
+    margin: auto 0 0 0;
+    line-height: 2.75rem;
+    color: #000000;
+    text-decoration: none;
+    border-radius: 0.5rem;
+    background-color: #00A1FF;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.results__global-checkbox {
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 0.875rem;
+    height: 0.875rem;
+    text-align: center;
+    border-radius: 0.125rem;
+}
+.results__global-checkbox span {
+    height: 0.75rem;
+    width: 0.75rem;
+    font-size: 0.75rem;
+    line-height: 0.75rem;
+
+}
+.results__global-checkbox--nothing {
+    border: 0.125rem solid #777;
+}
+.results__global-checkbox--all,
+.results__global-checkbox--some {
+    background-color: #0066DE;
+    color: #fff;
+    font-weight: bold;
+}
+
+
+.loader {
+    display: inline-block;
+    box-sizing: border-box;
+    width: 3rem;
+    height: 3rem;
+    margin: auto;
+    border: 0.3125rem solid #ccc;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+
+@media screen and (min-width: 460px) {
+    .header {
+        text-align: center;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .header__edit-checkbox {
+        right: 2rem;
+    }
+    .edit-container,
+    .results__container {
+        margin-right: 2rem;
+        margin-left: 2rem;
+    }
+    .search-form {
+        max-width: 50vw;
+        margin-right: auto;
+        margin-left: auto;
+    }
 }
